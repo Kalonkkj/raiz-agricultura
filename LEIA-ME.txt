@@ -1,0 +1,37 @@
+RAIZ — projeto conectado ao Supabase e pronto para GitHub Pages
+
+O pacote contém:
+- index.html: site com cadastro/login individual, painel, histórico e comparação de preços.
+- config.js: URL e publishable key do projeto Raiz Agricultura já configuradas.
+- supabase-schema.sql: estrutura documentada do banco e políticas de segurança RLS.
+
+PROJETO SUPABASE JÁ CRIADO
+Nome: Raiz Agricultura
+Região: São Paulo (sa-east-1)
+Plano: Free
+URL: https://uuowtwzwynvarqkwkhoh.supabase.co
+
+O banco já foi criado e verificado no projeto. Não é necessário executar o SQL novamente nele. O arquivo SQL está incluído para documentação e para recriar a estrutura em outro projeto, se necessário.
+
+TESTAR LOCALMENTE
+1. Extraia o ZIP.
+2. Abra a pasta em um terminal e execute: python -m http.server 8000
+3. Acesse http://localhost:8000.
+4. Crie uma conta com e-mail e senha; confirme o e-mail se o Supabase solicitar.
+5. Cadastre uma propriedade e registre produção, venda, doação ou consumo próprio.
+
+PUBLICAR NO GITHUB PAGES
+1. Crie um repositório público chamado raiz-agricultura.
+2. Envie os arquivos index.html, config.js e LEIA-ME.txt para a raiz do repositório. O SQL pode ser mantido no repositório como documentação.
+3. No GitHub, abra Settings > Pages.
+4. Em Build and deployment, escolha Deploy from a branch, branch main e pasta /(root), depois Save.
+5. Aguarde o endereço https://SEU-USUARIO.github.io/raiz-agricultura/.
+6. No Supabase, abra Authentication > URL Configuration e adicione o endereço publicado em Site URL e Redirect URLs.
+
+SEGURANÇA
+- A chave publishable incluída em config.js é destinada ao navegador.
+- Nunca coloque uma secret key ou service_role no site ou no GitHub.
+- As tabelas de dados dos agricultores têm RLS ativado e políticas que restringem cada conta às próprias linhas.
+
+PREÇOS DE MERCADO
+A tela compara o preço médio das vendas com referências presentes na tabela market_prices. O banco está preparado para receber cotações, mas a importação automática de preços ainda precisa de uma fonte de dados confiável e de uma rotina de atualização no servidor. Até isso ser configurado, o site informa quando não há cotação; não inventa valores.
